@@ -25,6 +25,12 @@
                     Clicked="btnZoomMais_Clicked"/>
             <Button Text="ZOOM -"
                     Clicked="btnZoomMenos_Clicked"/>
+            <Button Text="Fade"
+                    Clicked="btnFade_Clicked"/>
+            <Button Text="Tremer"
+                    Clicked="btnTremer_Clicked"/>
+            <Button Text="Girar Zoom"
+                    Clicked="btnGirarZoom_Clicked"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
