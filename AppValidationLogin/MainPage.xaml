@@ -9,20 +9,31 @@
                VerticalOptions="Start"/>
 
         <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="CenterAndExpand">
+                     VerticalOptions="CenterAndExpand"
+                     WidthRequest="200">
             <Frame BackgroundColor="#333333">
                 <StackLayout>
                     <Label Text="Email:"
                            HorizontalTextAlignment="Start"/>
                     <Entry x:Name="txtEmail"
-                           ClearButtonVisibility="WhileEditing"
-                           Margin="0, 15"/>
+                           ClearButtonVisibility="WhileEditing"/>
+                    <Label x:Name="lblValidationEmail"
+                           Text="* Informae o email."
+                           TextColor="Red"
+                           FontSize="12"
+                           IsVisible="False"/>
+                    <StackLayout Padding="15"/>
 
                     <Label Text="Senha:"
                            HorizontalTextAlignment="Start"/>
                     <Entry x:Name="txtSenha"
-                           ClearButtonVisibility="WhileEditing"
-                           Margin="0, 15"/>
+                           ClearButtonVisibility="WhileEditing"/>
+                    <Label x:Name="lblValidationSenha"
+                           Text="* Informae a senha."
+                           TextColor="Red"
+                           FontSize="12"
+                           IsVisible="False"/>
+                    <StackLayout Padding="15"/>
 
                     <Button Text="Entrar"
                             BackgroundColor="Blue"
