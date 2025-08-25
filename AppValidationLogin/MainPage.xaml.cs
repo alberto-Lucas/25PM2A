@@ -37,21 +37,8 @@
 
         private void btnEntrar_Clicked(object sender, EventArgs e)
         {
-            if (txtEmail.Text != "admin")
-            {
-                TremerEntry(txtEmail);
-                lblValidationEmail.IsVisible = true;
-            }
-            else
-                lblValidationEmail.IsVisible = false;
-
-            if (txtSenha.Text != "admin")
-            {
-                TremerEntry(txtSenha);
-                lblValidationSenha.IsVisible = true;
-            }
-            else
-                lblValidationSenha.IsVisible = false;
+            ValidarCampo(txtEmail, lblValidationEmail, "admin");
+            ValidarCampo(txtSenha, lblValidationSenha, "admin");
         }
     }
 }
