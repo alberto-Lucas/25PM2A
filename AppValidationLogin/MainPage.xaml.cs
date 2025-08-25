@@ -7,28 +7,13 @@
             InitializeComponent();
         }
 
-        //Método tremer
-        //para aplicar animação no componente informado
-        private async void TremerEntry(Entry txtCampo)
-        {
-            uint tempo = 50;
-
-            await txtCampo.TranslateTo(-15, 0, tempo);
-            await txtCampo.TranslateTo(15, 0, tempo);
-            await txtCampo.TranslateTo(-10, 0, tempo);
-            await txtCampo.TranslateTo(10, 0, tempo);
-            await txtCampo.TranslateTo(-5, 0, tempo);
-            await txtCampo.TranslateTo(5, 0, tempo);
-            txtCampo.TranslationX = 0;
-        }
-
         private void ValidarCampo(
             Entry txtCampo, Label lblValidation, string valor)
         {
             if((String.IsNullOrEmpty(txtCampo.Text)) ||
                (txtCampo.Text != valor))
             {
-                TremerEntry(txtCampo);
+                Animation.Tremer(txtCampo);
                 lblValidation.IsVisible = true;
             }
             else
