@@ -25,7 +25,14 @@
         private void ValidarCampo(
             Entry txtCampo, Label lblValidation, string valor)
         {
-
+            if((String.IsNullOrEmpty(txtCampo.Text)) ||
+               (txtCampo.Text != valor))
+            {
+                TremerEntry(txtCampo);
+                lblValidation.IsVisible = true;
+            }
+            else
+                lblValidation.IsVisible = false;
         }
 
         private void btnEntrar_Clicked(object sender, EventArgs e)
