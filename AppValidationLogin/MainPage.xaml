@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppValidationLogin.MainPage">
+    <StackLayout Padding="20">
+        <Label Text="Validation Login"
+               FontSize="30"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Start"/>
+
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="CenterAndExpand">
+            <Frame BackgroundColor="#333333">
+                <StackLayout>
+                    <Label Text="Email:"
+                           HorizontalTextAlignment="Start"/>
+                    <Entry x:Name="txtEmail"
+                           ClearButtonVisibility="WhileEditing"
+                           Margin="0, 15"/>
+
+                    <Label Text="Senha:"
+                           HorizontalTextAlignment="Start"/>
+                    <Entry x:Name="txtSenha"
+                           ClearButtonVisibility="WhileEditing"
+                           Margin="0, 15"/>
+
+                    <Button Text="Entrar"
+                            BackgroundColor="Blue"
+                            Clicked="btnEntrar_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
