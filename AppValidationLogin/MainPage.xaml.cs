@@ -45,7 +45,7 @@
                 Email.SetValidation("* Informe o Email.", true);
             else if (Email.GetText().Length < 5) //Se possui 5 ou mais caracteres
                 Email.SetValidation("* Informe um email com no minimo 5 caracteres.", true);
-            else if (!Email.Equals("admin")) //Se o conteudo é diferente de admin
+            else if (!Email.IsEquals("admin")) //Se o conteudo é diferente de admin
                 Email.SetValidation("* Informe um Email válido.", true);
             else
             {

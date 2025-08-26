@@ -50,13 +50,13 @@ namespace AppValidationLogin
         //Método que retorna se o campo está vazio
         public bool IsEmpty()
         {
-            return string.IsNullOrEmpty(EntryCampo.Text.Trim());
+            return string.IsNullOrEmpty(EntryCampo.Text);
         }
 
         //Método que retorna se o conteudo do campo igual a X texto
         public bool IsEquals(string valor)
         {
-            return EntryCampo.Equals(valor);
+            return EntryCampo.Text == valor;
         }
     }
 }
