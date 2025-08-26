@@ -33,6 +33,7 @@
             Validation Senha = new Validation(txtSenha, lblValidationSenha);
 
             //Criar as validações personalizadas
+            ValidarEmail(Email);
         }
 
         private bool ValidarEmail(Validation Email)
