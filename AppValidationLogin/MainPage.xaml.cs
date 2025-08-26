@@ -34,6 +34,7 @@
 
             //Criar as validações personalizadas
             ValidarEmail(Email);
+            ValidarSenha(Senha);
         }
 
         private bool ValidarEmail(Validation Email)
@@ -51,6 +52,26 @@
             {
                 resultado = true;
                 Email.HideValidation();
+            }
+
+            return resultado;
+        }
+
+        private bool ValidarSenha(Validation Senha)
+        {
+            //Definir o resultado padrão
+            bool resultado = false;
+
+            if (Senha.IsEmpty()) //Valido se está vazio
+                Senha.SetValidation("* Informe o Senha.", true);
+            else if (Senha.GetText().Length < 5) //Se possui 5 ou mais caracteres
+                Senha.SetValidation("* Informe uma Senha com no minimo 5 caracteres.", true);
+            else if (!Senha.IsEquals("admin")) //Se o conteudo é diferente de admin
+                Senha.SetValidation("* Informe uma Senha válido.", true);
+            else
+            {
+                resultado = true;
+                Senha.HideValidation();
             }
 
             return resultado;
