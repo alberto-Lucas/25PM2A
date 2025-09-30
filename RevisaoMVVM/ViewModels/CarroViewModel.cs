@@ -85,5 +85,27 @@ namespace RevisaoMVVM.ViewModels
             //Iremos a abrir a tela de visulização
             AbrirView(new CarroVisualizacaoView());
         }
+
+        //Iremos implementar a rotina de consulta
+        public ICommand ConsultarCommand { get; set; }
+        public void Consultar()
+        {
+            //Instanciar o objeto carro
+            //para recuperar o registro cadastrado
+            //e atribuir o cadastro salvo
+            Carro carro = carroService.Consultar();
+
+            //Iremos popular as propriedades com o objeto
+            Marca = carro.Marca;
+            Modelo = carro.Modelo;
+            Cor = carro.Cor;
+        }
+
+        //Iremos vincular os métodos aos commands
+        public CarroViewModel()
+        {
+            CadastrarCommand = new Command(Cadastrar);
+            ConsultarCommand = new Command(Consultar);
+        }
     }
 }
