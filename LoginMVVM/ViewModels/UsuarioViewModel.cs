@@ -1,5 +1,7 @@
 ﻿using LoginMVVM.Models;
 using LoginMVVM.Services;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace LoginMVVM.ViewModels
 {
@@ -61,6 +63,23 @@ namespace LoginMVVM.ViewModels
                 _dtNascimento = value;
                 OnPropertyChanged();
             }
+        }
+
+        public ICommand CadastrarCommand { get; set; }
+        public async Task Cadastrar()
+        {
+            Usuario usuario = new Usuario();
+            usuario.Nome = Nome;
+            usuario.CPF = Cpf;
+            usuario.Email = Email;
+            usuario.Senha = Senha;
+            usuario.DtNascimento = DtNascimento;
+
+            usuarioService.Inserir(usuario);
+
+            AlertInfo("Cadastro realizado com sucesso!");
+
+            Voltar();
         }
     }
 }

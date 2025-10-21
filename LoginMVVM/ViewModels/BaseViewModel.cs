@@ -22,4 +22,10 @@ public class BaseViewModel : BaseNotifyService
     {
         VoltarCommand = new Command(Voltar);
     }
+
+    public async void AlertInfo(string conteudo)
+    {
+        await Application.Current.MainPage.
+                DisplayAlert("Informação!", conteudo, "OK");
+    }
 }
