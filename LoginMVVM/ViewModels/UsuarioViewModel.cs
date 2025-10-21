@@ -66,7 +66,7 @@ namespace LoginMVVM.ViewModels
         }
 
         public ICommand CadastrarCommand { get; set; }
-        public async Task Cadastrar()
+        public async void Cadastrar()
         {
             Usuario usuario = new Usuario();
             usuario.Nome = Nome;
@@ -80,6 +80,47 @@ namespace LoginMVVM.ViewModels
             AlertInfo("Cadastro realizado com sucesso!");
 
             Voltar();
+        }
+
+        public ICommand CarregarCommand { get; set; }
+        public void Carregar()
+        {
+            Usuario usuario = usuarioService.GetUsuario();
+
+            Nome = usuario.Nome;
+            Cpf = usuario.CPF;
+            Email = usuario.Email;
+            Senha = usuario.Senha;
+            DtNascimento = usuario.DtNascimento;
+        }
+
+        public ICommand LoginCommand { get; set; }
+        public void Login()
+        {
+            Usuario usuario = usuarioService.GetUsuario();
+
+            if ((Email == usuario.Email) &&
+                (Senha == usuario.Senha))
+            {
+                AlertInfo("Login realizar com sucesso!");
+                AbrirView(new PrincipalView());
+            }
+            else
+                AlertInfo("Email ou Senha incorretos!");
+        }
+
+        public ICommand AbrirCadastroCommand { get; set; }
+        public void AbrirCadastro()
+        {
+            AbrirView(new CadastroView);
+        }
+
+        public UsuarioViewModel()
+        {
+            CadastrarCommand = new Command(Cadastrar);
+            CarregarCommand = new Command(Carregar);
+            LoginCommand = new Command(Login);
+            AbrirCadastroCommand = new Command(AbrirCadastro);
         }
     }
 }
